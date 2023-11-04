@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-//const connectionString = process.env.MONGODB_URI;
-const connectionString = "mongodb+srv://technologymuhoko:3ntIYuoVwPY5dg1X@muhoko.skdczop.mongodb.net/?retryWrites=true&w=majority";
+const connectionString = process.env.MONGOLAB_URI;
+//const connectionString = "mongodb+srv://technologymuhoko:3ntIYuoVwPY5dg1X@muhoko.skdczop.mongodb.net/?retryWrites=true&w=majority";
 const database = process.env.MONGODB;
 
 // MongoDB Connection Pools
@@ -15,8 +15,8 @@ const options = {
   useNewUrlParser: true,
   dbName: database,
 };
-
-mongoose
+// i aded this part
+/*mongoose
   .connect(connectionString, options)
   .then(() => {
     console.log("Successfully connected to MongoDB.");
@@ -24,9 +24,8 @@ mongoose
   .catch((err) => {
     console.error("Error:", err);
     process.exit(1); // Terminate the application on connection error
-  });
-/*mongoose
+  }); */
+mongoose
   .connect(connectionString, options)
   .then(() => console.log("Successfully connected to MongoDB."))
   .catch((err) => console.log("Error:", err));
-*/
